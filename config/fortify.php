@@ -145,10 +145,10 @@ return [
     */
 
     'features' => [
-        // Features::registration(),
+        Features::registration(), // TODO: env toggleable
         Features::resetPasswords(),
         // Features::emailVerification(),
-        Features::updateProfileInformation(),
+        Features::updateProfileInformation(), // TODO: env toggleable
         Features::updatePasswords(),
         Features::twoFactorAuthentication([
             'confirm' => true,
