@@ -19,7 +19,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'regex:/^[A-Za-z0-9-_]+$/', 'max:255', Rule::unique('users')->ignore($user->id)], 
+            'username' => ['required', 'string', 'regex:/^[A-Za-z0-9-_\.]+$/', 'min:3', 'max:30', Rule::unique('users')->ignore($user->id)], 
             'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
         ])->validateWithBag('updateProfileInformation');
