@@ -63,6 +63,12 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        // if is current user block it
+        if ($user->id === auth()->user()->id) {
+            return redirect()->back(); //TODO add error message
+        }
+
+        $user->delete();
+        return redirect()->back(); //TODO add success message
     }
 }
